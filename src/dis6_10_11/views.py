@@ -22,3 +22,6 @@ def time_plus(request, offset):
     dt = datetime.datetime.now()+datetime.timedelta(hours=offset)
     html = "After %s hours will be %s" % (offset, dt)
     return HttpResponse(html)    
+
+def plus (request):
+    return HttpResponse("PLUS")
