@@ -24,4 +24,4 @@ def time_plus(request, offset):
     return HttpResponse(html)    
 
 def plus (request):
-    return HttpResponse("PLUS")
+    return HttpResponse("PLUS+")
