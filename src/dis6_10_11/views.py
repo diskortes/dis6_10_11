@@ -5,14 +5,20 @@ Created on 06.10.2011
 '''
 
 from django.http import HttpResponse, Http404
+from django.template.loader import get_template
+from django.template import Context
 import datetime
 
 def hello(request):
     return HttpResponse("Hello DIS!")
 
 def current_time(request):
-    now ="<html><h2>Now %s</h2></html>" % datetime.datetime.now()
-    return HttpResponse(now)
+    now = datetime.datetime.now()
+    t = get_template('current_time.html')
+    a = Context()
+    a['current_date'] = now
+    html = t.render(a)
+    return HttpResponse(html)
 
 def time_plus(request, offset):
     try:
