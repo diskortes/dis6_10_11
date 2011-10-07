@@ -9,6 +9,8 @@ class Publisher(models.Model):
     state_province = models.CharField(max_length=30)
     country = models.CharField(max_length=50)
     website = models.URLField()
+    def __str__(self):
+        return self.name
     
 class Author(models.Model):
     first_name = models.CharField(max_length=30)
@@ -20,3 +22,6 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher)
     publication_date = models.DateField()
+    
+    def __unicode__(self):
+        return self.title
