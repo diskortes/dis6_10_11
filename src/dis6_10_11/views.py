@@ -4,13 +4,14 @@ Created on 06.10.2011
 @author: Server
 '''
 
+import os.path
 from django.http import HttpResponse, Http404
 from django.template.loader import get_template
 from django.template import Context
 import datetime
 
 def hello(request):
-    return HttpResponse("Hello DIS!")
+    return HttpResponse(os.path.join(os.path.dirname(__file__), 'sql.db').replace('\\','/'))
 
 def current_time(request):
     now = datetime.datetime.now()
