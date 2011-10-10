@@ -8,6 +8,7 @@ import os.path
 from django.http import HttpResponse, Http404
 from django.template.loader import get_template
 from django.template import Context
+from django.shortcuts import render_to_response
 import datetime
 
 def hello(request):
@@ -32,3 +33,8 @@ def time_plus(request, offset):
 
 def plus (request):
     return HttpResponse("PLUS+")
+
+def display_meta(request):
+    values = request.META.items()
+    values.sort()
+    return render_to_response('meta.html',{'meta_data':values})

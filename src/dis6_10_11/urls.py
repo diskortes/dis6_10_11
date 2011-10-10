@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from dis6_10_11.views import hello, current_time, time_plus
+from dis6_10_11.views import hello, current_time, time_plus,display_meta
     
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', hello),
     url(r'^time/$', current_time),
     url(r'^time/plus/(\d{1,2})/$',time_plus),
+    url(r'^meta/$', display_meta),
     # Examples:
     # url(r'^$', 'dis6_10_11.views.home', name='home'),
     # url(r'^dis6_10_11/', include('dis6_10_11.foo.urls')),
